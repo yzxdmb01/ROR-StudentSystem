@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   post 'session/create'
 
   get 'test' => 'test#test'
+
+  get 'main' => 'test#index'
+
+  get 'get' => 'test#get'
+
+  root :to => "session#new"
 end

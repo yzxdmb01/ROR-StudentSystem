@@ -6,7 +6,8 @@ class SessionController < ApplicationController
     user = User.find_by(name: user_params[:name]).try(:authenticate, user_params[:password])
     if user
       session[:user_id] = user.id
-      render plain: sprintf("welcome,%s!", user.name)
+      # render plain: sprintf("welcome,%s!", user.name)
+      redirect_to test_url
     else
       flash.now[:login_error] = "用户名或密码错误"
       render "new"

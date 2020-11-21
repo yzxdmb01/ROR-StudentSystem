@@ -3,7 +3,7 @@ class BaseController < ApplicationController
 
   def verify_login
     if !current_user
-      redirect_to login_url
+      redirect_to root_url
     end
   end
 

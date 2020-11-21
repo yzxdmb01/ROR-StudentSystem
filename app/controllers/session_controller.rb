@@ -7,10 +7,10 @@ class SessionController < ApplicationController
     if user
       session[:user_id] = user.id
       # render plain: sprintf("welcome,%s!", user.name)
-      redirect_to test_url
+      redirect_to main_url
     else
       flash.now[:login_error] = "用户名或密码错误"
-      render "new"
+      render root_url
     end
   end
 

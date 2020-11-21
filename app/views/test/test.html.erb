@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | jsGrid</title>
+  <title>AdminLTE 3</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,9 +11,7 @@
   <link rel="stylesheet" href="../../assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- jsGrid -->
-  <link rel="stylesheet" href="../../assets/plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="../../assets/plugins/jsgrid/jsgrid-theme.min.css">
+  <link rel="stylesheet" href="../../assets/table/bootstrap-table.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../assets/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -21,6 +19,9 @@
   <style>
     .w15p{
         width: 15%;
+    }
+    .modal{
+        top: 30%;
     }
   </style>
 </head>
@@ -220,12 +221,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>jsGrid</h1>
-          </div>
-          <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">jsGrid</li>
+              <li class="breadcrumb-item"><a href="#">学生管理</a></li>
+              <li class="breadcrumb-item active">用户管理</li>
             </ol>
           </div>
         </div>
@@ -236,7 +234,7 @@
     <section class="content">
       <div class="card">
         <div class="card-header w15p">
-          <button type="button" class="btn btn-block bg-gradient-success">添加角色</button>
+          <button id="btn-add" type="button" class="btn btn-block bg-gradient-success">添加用户</button>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -263,6 +261,39 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="addRoleModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">
+          添加用户
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary">
+          提交
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
@@ -275,8 +306,68 @@
 <script src="../../assets/dlist/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script>
-    $(function () {
+    $('#table').bootstrapTable({
+        url: 'get',
+        striped: true,                      //是否显示行间隔色
+        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,                   //是否显示分页（*）
+        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+        pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+        pageSize: 10,                     //每页的记录行数（*）
+        pageList: [10, 20],        //可供选择的每页的行数（*）
+        search: false,                      //是否显示表格搜索
+        showRefresh: true,                  //是否显示刷新按钮
+        minimumCountColumns: 2,             //最少允许的列数
+        clickToSelect: true,                //是否启用点击选中行
+        //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+        cardView: false,                    //是否显示详细视图
+        columns: [{
+            field: 'id',
+            title: 'Item ID'
+        }, {
+            field: 'name',
+            title: 'Item Name'
+        }, {
+            field:'ID',
+            title: '操作',
+            width: 120,
+            align: 'center',
+            valign: 'middle',
+            formatter: actionFormatter
+        }],
+        //得到查询的参数
+        queryParams : function (params) {
+//这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+            const param = {
+                rows: params.limit,                         //页面大小
+                page: (params.offset / params.limit) + 1,   //页码
+                sort: params.sort,      //排序列名
+                sortOrder: params.order //排位命令（desc，asc）
+            };
+            return param;
+        },
+        onLoadSuccess: function () {
+            $('#table').bootstrapTable("hideLoading");
+        },
+        onLoadError: function () {
+            alert("数据加载失败！");
+        },
+        onDblClickRow: function (row, $element) {
+
+        },
     });
+    //操作栏的格式化
+    function actionFormatter(value, row, index) {
+        var id = value;
+        var result = "";
+        result += '<a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>';
+
+        return result;
+    }
+    $("#btn-add").click(function () {
+        $('#addRoleModel').modal();
+    })
 </script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'applicants/new'
+  get 'applicants/del' => 'applicants#del'
+  get 'applicants/add' => 'applicants#add'
 
   post 'applicants/create'
 
@@ -9,9 +11,9 @@ Rails.application.routes.draw do
 
   get 'test' => 'test#test'
 
-  get 'main' => 'test#index'
+  get 'main' => 'admin#index'
 
-  get 'get' => 'test#get'
+  get 'admin/list' => 'admin#list'
 
   root :to => "session#new"
 end

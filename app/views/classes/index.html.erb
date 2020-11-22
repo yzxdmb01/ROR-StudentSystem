@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../assets/table/bootstrap-table.min.css">
+  <link rel="stylesheet" href="../../assets/table/bootstrap-table.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../assets/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+      .w15p {
+          width: 15%;
+      }
+
+      .modal {
+          top: 30%;
+      }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../assets/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../assets/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../../index3.html" class="brand-link">
+      <img src="../../assets/img/AdminLTELogo.png"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">
+            <% if @current_user %> <%= @current_user.name %>
+            <% end %></a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                系统管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/main" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>用户管理</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/classes/index" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>班级管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">系统管理</a></li>
+              <li class="breadcrumb-item active">班级管理</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="card">
+        <div class="card-header">
+          <button id="btn-add" type="button" class="btn btn-block bg-gradient-success w15p">添加班级</button>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="table"></table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.5
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">
+          添加班级
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-role" role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">班级名称</label>
+              <input type="text" class="form-control" id="add-name" placeholder="Enter Class Name">
+            </div>
+            <div class="form-group">
+              <label>班主任</label>
+              <input type="text" class="form-control" id="add-teacher" placeholder="Enter Teacher">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary" id="class-add">
+          提交
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+<!-- ./wrapper -->
+
+<div class="modal fade" id="editClass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">
+          编辑班级
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form id="form-role" role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">班级名称</label>
+              <input type="text" class="form-control" id="edit-name" placeholder="Enter Class Name">
+            </div>
+            <div class="form-group">
+              <label>班主任</label>
+              <input type="text" class="form-control" id="edit-teacher" placeholder="Enter Teacher">
+            </div>
+          </div>
+          <input type="hidden" class="form-control" id="edit-id">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary" id="class-edit">
+          提交
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+<div class="alert alert-success">成功！很好地完成了提交。</div>
+
+<!-- jQuery -->
+<script src="../../assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/table/bootstrap-table.min.js"></script>
+<script src="../../assets/table/bootstrap-table-zh-CN.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../assets/dlist/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script>
+
+    $('#table').bootstrapTable({
+        url: 'list',
+        striped: true,                      //是否显示行间隔色
+        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,                   //是否显示分页（*）
+        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+        pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+        pageSize: 10,                     //每页的记录行数（*）
+        pageList: [10, 20],        //可供选择的每页的行数（*）
+        search: false,                      //是否显示表格搜索
+        showRefresh: true,                  //是否显示刷新按钮
+        minimumCountColumns: 2,             //最少允许的列数
+        clickToSelect: true,                //是否启用点击选中行
+        //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "id",                     //每一行的唯一标识，一般为主键列
+        cardView: false,                    //是否显示详细视图
+        columns: [{
+            field: 'id',
+            title: 'ID'
+        }, {
+            field: 'name',
+            title: '班级名称'
+        }, {
+            field: 'teacher',
+            title: '班主任'
+        }, {
+            field: 'created_at',
+            title: '添加时间',
+            formatter: dateFormatter
+        },{
+            field: 'id',
+            title: '管理',
+            formatter: stuFormatter
+        }, {
+            field: 'id',
+            title: '操作',
+            width: 120,
+            align: 'center',
+            valign: 'middle',
+            formatter: actionFormatter
+        }],
+        //得到查询的参数
+        queryParams: function (params) {
+//这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+            const param = {
+                rows: params.limit,                         //页面大小
+                page: (params.offset / params.limit) + 1,   //页码
+                sort: params.sort,      //排序列名
+                sortOrder: params.order //排位命令（desc，asc）
+            };
+            return param;
+        },
+        onLoadSuccess: function () {
+            $('#table').bootstrapTable("hideLoading");
+        },
+        onLoadError: function () {
+            alert("数据加载失败！");
+        },
+        onDblClickRow: function (row, $element) {
+
+        },
+    });
+
+    function dateFormatter(value) {
+        var d = new Date(value);
+        return d.format("yyyy-MM-dd hh:mm:ss");
+    }
+
+    function stuFormatter(value){
+        var result = "";
+        result += '<a href="#"  onclick="stu(' + value + ')" >学生管理</a>';
+        return result
+    }
+
+    function stu(id){
+        window.location.href = "/students?cid="+id;
+    }
+
+    //操作栏的格式化
+    function actionFormatter(value, row, index) {
+        var id = value;
+        var result = "";
+        result += '<a href="#" class="btn btn-tool" onclick="edit(' + id + ')" ><i class="fas fa-edit"></i></a>';
+        result += '<a href="#" class="btn btn-tool" onclick="del(' + id + ',\'' + row.name + '\')" ><i class="fas fa-trash"></i></a>';
+        return result;
+    }
+
+    // 打开添加班级窗口
+    $("#btn-add").click(function () {
+        $('#addClass').modal();
+        $("#form-role input").val("");
+    })
+    //添加窗口提交
+    $("#class-add").click(function () {
+        if (!$("#add-name").val() || !$("#add-teacher").val()) {
+            return;
+        }
+        var data = {
+            name: $("#add-name").val(),
+            teacher: $("#add-teacher").val()
+        }
+        $.ajax({
+            url: "create",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                if (data.code == 200) {
+                    $("#table").bootstrapTable('refresh')
+                } else {
+                    alert(data.msg)
+                }
+            },
+            complete: function (data) {
+                $('#addClass').modal('hide');
+            }
+        })
+    });
+
+    function edit(id) {
+        var row = $("#table").bootstrapTable('getRowByUniqueId', id);
+        $("#edit-name").val(row.name);
+        $("#edit-teacher").val(row.teacher);
+        $("#edit-id").val(row.id);
+        $("#editClass").modal();
+    }
+
+    //更新窗口提交
+    $("#class-edit").click(function () {
+        if (!$("#edit-name").val() || !$("#edit-teacher").val()) {
+            return;
+        }
+        var data = {
+            name: $("#edit-name").val(),
+            teacher: $("#edit-teacher").val(),
+            id: $("#edit-id").val()
+        }
+        $.ajax({
+            url: "update",
+            type: "PUT",
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                if (data.code == 200) {
+                    $("#table").bootstrapTable('refresh')
+                } else {
+                    alert(data.msg)
+                }
+            },
+            complete: function (data) {
+                $('#editClass').modal('hide');
+            }
+        })
+    });
+
+    function del(id, name) {
+        console.log("id:", id);
+        if (confirm("确认删除" + name + "吗？")) {
+            console.log("删除了");
+            $.ajax({
+                url: "del",
+                type: "delete",
+                data: {id: id},
+                success: function (data) {
+                    $("#table").bootstrapTable('refresh')
+                    console.log("data:", data);
+                }
+            })
+        } else {
+            console.log("没删");
+        }
+    }
+
+    Date.prototype.format = function (fmt) {
+        var o = {
+            "M+": this.getMonth() + 1,                 //月份
+            "d+": this.getDate(),                    //日
+            "h+": this.getHours(),                   //小时
+            "m+": this.getMinutes(),                 //分
+            "s+": this.getSeconds(),                 //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds()             //毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+</script>
+</body>
+</html>
